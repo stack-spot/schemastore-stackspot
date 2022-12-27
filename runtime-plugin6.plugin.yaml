@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=./plugin-schema.json
+#RUNTIME PLUGIN#
+
+stkApiVersion: stkframework.stackspot.com/v0.1
+kind: runtime-plugin
+metadata:
+  name: rds-postgres
+  display-name: RDS Postgres
+  description: RDS for ITI runtimes.
+  owner: iti/foundation-team
+  version: 1.0.0
+
+spec:
+  app-aLllowed: true
+
+  generates:
+    - connection-interface: rds-conn
+
+  requires:
+    - connection-interface: aws-vpc-conn
+
+  inputs:
+    - label: Database Name
+      type: text
+      name: db-name
+    - label: Instance Size
+      type: text
+      name: instance-size
+      items:
+        - small
+        - medium
+        - large
+    - label: Storage
+      type: int
+      name: storage

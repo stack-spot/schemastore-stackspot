@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=./plugin-schema.json
+#RUNTIME PLUGIN#
+
+stkApiVersion: stkframework.stackspot.com/v0.1
+kind: runtime-plugin
+metadata:
+  name: dynamodb
+  display-name: DynamoDB by ITI
+  description: DynamoDB for ITI runtimes.
+  owner: iti/foundation-team
+  version: 1.0.0
+
+spec:
+  app-aLllowed: true
+
+  generates:
+    - connection-interface: dynamodb-conn
+
+  inputs:
+    - label: Table Name
+      type: text
+      name: table-name
+    - label: Partition Key Name
+      type: text
+      name: partition-key-name
+    - label: Sort Key Name
+      type: text
+      name: sort-key-name
+    - label: Server Side Encryption
+      type: bool
+      name: server-side-encryption
