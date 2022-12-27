@@ -1,0 +1,142 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "stkApiVersion": {
+        "type": "string"
+      },
+      "kind": {
+        "type": "string",
+        "enum": [
+          "app-plugin",
+          "runtime-plugin",
+          "pipeline-plugin",
+          "link-plugin"
+        ]
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "display-name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string",
+            "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+          },
+          "owner": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "display-name",
+          "description",
+          "version",
+          "owner"
+        ]
+      },
+      "spec": {
+        "type": "object",
+        "properties": {
+          "requires": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "connection-interface": {
+                    "type": "string",
+                    "enum": [
+                        "rds-conn",
+                        "ecs-task-conn",
+                        "dynamodb-conn"
+                      ]
+                  }
+                },
+                "required": [
+                  "connection-interface"
+                ]
+              }
+            ]
+          },
+          "inputs": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                        "text",
+                        "bool",
+                        "int",
+                        "password",
+                        "multiselect",
+                        "list"
+                      ]
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "type",
+                  "name"
+                ]
+              }
+            ]
+          },
+          "envs": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                        "text",
+                        "bool",
+                        "int",
+                        "password",
+                        "multiselect",
+                        "list"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "type",
+                  "name"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "required": [
+      "stkApiVersion",
+      "kind",
+      "metadata"
+    ]
+  }
