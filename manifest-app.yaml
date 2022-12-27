@@ -3,7 +3,7 @@ app-id: 11111-22222-33333-44444       (único por Workspace)
 runtime-version: 1.0.0                (versão API Runtime)
 
 plugins:
-  - name: another_stack/microservices@v3
+  - name: another_stack/microservices@v3       (applied plugin)
     type: app
     inputs:
     connector:
