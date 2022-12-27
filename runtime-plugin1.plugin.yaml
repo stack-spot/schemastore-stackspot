@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=./plugin-schema.json
+#RUNTIME PLUGIN#
+
+stkApiVersion: stkframework.stackspot.com/v0.1
+kind: runtime-plugin
+metadata:
+  name: ecs-task
+  display-name: ECS Task
+  description: ECS Task for ITI applications
+  owner: iti/foundation-team
+  version: 1.0.0
+
+spec:
+  app-aLllowed: true
+
+  generates:
+    - connection-interface: ecs-task-conn
+
+  requires:
+    - connection-interface: ecs-cluster-fargate-conn
+    - connection-interface: aws-vpc-conn
+
+  actions:
+    - action: ../itau/actions/restart-task
+
+  links:
+    - link: ../itau/links/cloud-watch-log-groups
+
+  inputs:
+    - label: Task Name
+      type: text
+      name: task-name
+    - label: Task Memory ALloc
+      type: number
+      name: memory
+    - label: Task Port
+      type: number
+      name: port

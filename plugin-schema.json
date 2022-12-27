@@ -57,7 +57,9 @@
                     "enum": [
                         "rds-conn",
                         "ecs-task-conn",
-                        "dynamodb-conn"
+                        "dynamodb-conn",
+                        "ecs-cluster-fargate-conn",
+                        "aws-vpc-conn"
                       ]
                   }
                 },

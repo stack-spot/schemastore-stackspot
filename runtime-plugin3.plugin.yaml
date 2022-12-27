@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=./plugin-schema.json
+#RUNTIME PLUGIN#
+
+stkApiVersion: stkframework.stackspot.com/v0.1
+kind: runtime-plugin
+metadata:
+  name: network
+  display-name: AWS VPC by ITI
+  description: AWS VPC for ITI runtimes
+  owner: iti/foundation-team
+  version: 1.0.0
+
+spec:
+  app-allowed: false
+
+  generates:
+    - connection-interface: aws-vpc-conn
+      label: VPC CONN
+
+  inputs:
+    - label: CIDR Block
+      type: text
+      name: cidr-block
+    - label: VPC Name
+      type: text
+      name: vpc-name

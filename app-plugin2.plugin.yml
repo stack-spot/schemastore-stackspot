@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=./plugin-schema.json
+
+#APP PLUGIN
+
+stkApiVersion: stkframework.stackspot.com/v0.1
+kind: app-plugin
+metadata:
+  name: microservice-springboot
+  display-name: Microservice Springboot
+  description: Microservice Java Springboot for ITI applications.
+  version: 1.0.0
+  owner: iti/foundation-team
+
+spec:
+  requires:
+    - connection-interface: ecs-task-conn
+
+  inputs:
+    - label: Package Name
+      type: text
+      name: package-name
+
+  envs:
+    - label: Connection Pool
+      type: text
+      name: connection-pool
