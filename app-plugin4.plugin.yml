@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=./plugin-schema.json
+
+#APP PLUGIN#
+
+stkApiVersion: stkframework.stackspot.com/v0.1
+kind: app-plugin
+metadata:
+  name: dynamodb-repository
+  display-name: DynamoDB Repository
+  description: DynamoDB Repository for ITI applications
+  version: 1.0.0
+  owner: iti/foundation-team
+
+spec:
+  requires:
+    - connection-interface: dynamodb-conn

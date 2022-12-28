@@ -1,0 +1,56 @@
+name: my_app                         (único por Workspace)
+app-id: 11111-22222-33333-44444       (único por Workspace)
+runtime-version: 1.0.0                (versão API Runtime)
+
+plugins:
+  - name: another_stack/microservices@v3       (applied plugin)
+    type: app
+    inputs:
+    connector:
+      - name: ecs-task-conn                    (interface)
+        id: task1
+
+  - name: another_stack/ecs-task@v3            (interface implementation)
+    type: runtime    
+    id: task1
+    inputs:
+       memory: {context.memory}                (pega do contexto por ambiente)
+       port: {context.port}                    (para todos os ambientes)
+    connector: 
+       - name: <CONNECTOR NAME 1>              (escolhido)
+         type: ecs-cluster-conn
+
+  - name: another_stack/dynamo-repository@v3
+    type: runtime       
+    inputs:
+    connector:
+       - name: dynamo-conn                     (interface)
+         id: db1       
+
+  - name: another_stack/dynamo@v3              (interface implementation) 
+    type: runtime    
+    id: db1                
+    inputs:
+      table: my-table
+      pk: pk
+      sk: sk
+
+  - name: another_stack/sqs-consumer@v3         (criação de nova fila)
+    type: runtime    
+    inputs:
+    connector:
+       - name: sqs-conn                         (interface) 
+         id: sqs1        
+
+  - name: another_stack/sqs@v3                  (interface implementation)
+    type: runtime     
+    id: sqs1 
+    inputs:
+      queue-name: my-queue
+
+  - name: another_stack/sqs-consumer@v3         (fila existente)
+    type: runtime    
+    inputs:
+    connector:
+       - name: <CONNECTOR NAME 1>               (escolhido)
+         type: sqs-conn

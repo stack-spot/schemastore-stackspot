@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=./plugin-schema.json
+#RUNTIME PLUGIN#
+
+stkApiVersion: stkframework.stackspot.com/v0.1
+kind: runtime-plugin
+metadata:
+  name: ecs-cluster-fargate
+  display-name: ECS Cluster with Fargate by ITI
+  description: ECS Cluster with Fargate for ITI runtimes
+  owner: iti/foundation-team
+  version: 1.0.0
+
+spec:
+  app-allowed: false
+
+  generates:
+    - connection-interface: ecs-cluster-fargate-conn
+
+  inputs:
+    - label: Cluster Name
+      type: text
+      name: cLluster-name
+    - label: S3 Bucket Name
+      type: text
+      name: s3-bucket-name
+    - label: S3 Key Prefix
+      type: text
+      name: s3-key-prefix
