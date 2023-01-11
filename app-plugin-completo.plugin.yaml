@@ -1,0 +1,59 @@
+schemaVersion: v1 #required
+kind: plugin-app #required
+metadata: #required
+  name: lambda-new-endpoint #required
+  description: Add new endpoint to an existing Lambda API.  #required
+  display-name: Endpoint para Lambda  #required
+  version: 1.0.0  #required
+  release-notes: docs/release-notes-1.0.0.md 
+  studio: stackspot/mind #(account/studio)  #required
+  picture: plugin.png  #required?
+  category: backend
+  compatibility: #optional
+    - python
+  about: docs/about.md  #required?
+  usage: docs/usage.md  #required?
+  implementation: docs/implementation.md  #required?
+  requirements: docs/requirements.md 	
+  repository: https://github.com/stack-spot/environments-runtime-stack  #optional
+  technologies: #optional #(https://docs.stackspot.com/docs/create-stacks/yaml-files/plugin/#technologies)
+    - Api
+spec: #required?
+  requires: #optional
+    plugin-app: #optional
+      - stackspot/mind/lambda-api@1.0.0
+                               # account/studio/plugin
+    connection-interface: #optional
+      - lambda-conn
+             # (levantar as possíveis connection interfaces pois precisaremos validar,talvez ter um serviço informando quais existem na account ou studio)
+  action:
+        - stackpot/mind/action-1@1.0.0
+  inputs: #optional
+    - label: Type name of your resource #required
+      name: resource #required
+      type: text #required 
+      required: true #optional
+      default: Client #optional
+      pattern: '([A-Z][a-z]+)+' #optional
+      help: 'Inform your resource name (e.g.: Client)' #optional
+    - label: Choose http method of new endpoint
+      name: method
+      type: select
+      items:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - PATCH
+      default: GET
+      required: true
+      help: 'Inform the method of the endpoint (e.g.: post or delete)'
+  computed-inputs: #optional
+    method_sanitized: '{{ method | lower }}'
+  hooks: #optional
+    - type: run-script #required
+      trigger: before-render #required
+      script: scripts/verify_command_has_already_been_applied.py
+    - type: run-script
+      trigger: before-render
+      script: scripts/extract_data_from_inputs.py

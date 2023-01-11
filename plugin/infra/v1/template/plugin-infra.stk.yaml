@@ -1,0 +1,46 @@
+schema-version: v1
+kind: plugin
+metadata:
+  name: {{plugin_name}}
+  display-name: {{plugin_name}}
+  description: {{plugin_description}}
+  version: {{version}}
+  picture: plugin.png
+spec:
+  type: infra
+  compatibility:
+    - python
+  about: docs/about.md
+  usage: docs/usage.md
+  implementation: docs/implementation.md
+  requirements: docs/requirements.md
+  repository: {{repository}}
+  release-notes: docs/release-notes-{{version}}.md
+  technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
+    - Api
+  app-allowed: true #optional default true
+  generates:
+      - connection-interface: ecs-task-conn
+  requires:
+    connection-interface:
+      - lambda-conn
+  inputs:
+    - label: Type name of your resource
+      name: resource
+      type: text
+      required: true  #defautl false
+      default: Client
+      pattern: '([A-Z][a-z]+)+'
+      help: 'Inform your resource name (e.g.: Client)'
+    - label: Choose http method of new endpoint
+      name: method
+      type: select
+      items:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - PATCH
+      default: GET
+      required: true
+      help: 'Inform the method of the endpoint (e.g.: post or delete)'
