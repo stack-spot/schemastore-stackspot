@@ -2,16 +2,13 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "properties": {
-      "stkApiVersion": {
+      "schema-version": {
         "type": "string"
       },
       "kind": {
         "type": "string",
         "enum": [
-          "app-plugin",
-          "runtime-plugin",
-          "pipeline-plugin",
-          "link-plugin"
+          "plugin"
         ]
       },
       "metadata": {
@@ -31,7 +28,7 @@
             "type": "string",
             "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
           },
-          "owner": {
+          "picture": {
             "type": "string"
           }
         },
@@ -46,28 +43,55 @@
       "spec": {
         "type": "object",
         "properties": {
-          "requires": {
-            "type": "array",
-            "items": [
-              {
-                "type": "object",
-                "properties": {
-                  "connection-interface": {
-                    "type": "string",
-                    "enum": [
-                        "rds-conn",
-                        "ecs-task-conn",
-                        "dynamodb-conn",
-                        "ecs-cluster-fargate-conn",
-                        "aws-vpc-conn"
-                      ]
-                  }
-                },
-                "required": [
-                  "connection-interface"
-                ]
-              }
+          "type": {
+            "type": "string",
+            "enum": [
+              "app",
+              "infra"
             ]
+          },
+          "compatibility": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+          "about": {
+            "type": "string"
+          },
+          "implementation": {
+            "type": "string"
+          },
+          "requirements": {
+            "type": "string"
+          },
+          "repository": {
+            "type": "string"
+          },
+          "release-notes": {
+            "type": "string"
+          },
+          "requires": {
+            "type": "object",
+            "properties": {
+                "plugin": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "connection-interface": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
           },
           "inputs": {
             "type": "array",
@@ -101,7 +125,7 @@
               }
             ]
           },
-          "envs": {
+          "env-inputs": {
             "type": "array",
             "items": [
               {
@@ -133,12 +157,16 @@
               }
             ]
           }
-        }
+        },
+        "required": [
+          "type"
+        ]
       }
     },
     "required": [
-      "stkApiVersion",
+      "schema-version",
       "kind",
-      "metadata"
+      "metadata",
+      "spec"
     ]
   }
