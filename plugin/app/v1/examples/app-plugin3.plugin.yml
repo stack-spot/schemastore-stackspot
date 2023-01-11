@@ -2,19 +2,16 @@
 
 #APP PLUGIN
 
-stkApiVersion: stkframework.stackspot.com/v0.1
-kind: app-plugin
+schema-version: v1
+kind: plugin
 metadata:
   name: relational-repository
   display-name: Relational Repository
   description: Relational repository for ITI applications.
   version: 1.0.0
-  owner: iti/foundation-team
-
 spec:
   requires:
     - connection-interface: rds-conn
-
   inputs:
     - label: Connection Pool Size
       type: int
