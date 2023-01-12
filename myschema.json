@@ -2,9 +2,15 @@
 "json.schemas": [
     {
         "fileMatch": [
-            "/*.plugin.yaml"
+            "/plugin-app.stk.yaml"
         ],
-        "url": "./plugin-schema.json"
+        "url": "./plugin/app/v1/app-schema.json"
+    },
+    {
+        "fileMatch": [
+            "/plugin-infra.stk.yaml"
+        ],
+        "url": "./plugin/infra/v1/infra-schema.json"
     }
 ]
 }
