@@ -22,5 +22,5 @@ spec:
 
   envs:
     - label: Connection Pool
-      type: text
+      type: text 
       name: connection-pool

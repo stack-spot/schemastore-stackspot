@@ -51,15 +51,15 @@
         "compatibility": {
           "type": "array",
           "items": {
-              "type": "string"
+            "type": "string"
           }
         },
         "technologies": {
           "type": "array",
           "items": {
-              "type": "string"
+            "type": "string"
           }
-      },
+        },
         "about": {
           "type": "string"
         },
@@ -103,13 +103,45 @@
                 "type": {
                   "type": "string",
                   "enum": [
-                      "text",
-                      "bool",
-                      "int",
-                      "password",
-                      "multiselect",
-                      "list"
-                    ]
+                    "text",
+                    "bool",
+                    "int",
+                    "password",
+                    "multiselect",
+                    "list"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "type",
+                "name"
+              ]
+            }
+          ]
+        },
+        "inputs-envs": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "text",
+                    "bool",
+                    "int",
+                    "password",
+                    "multiselect",
+                    "list"
+                  ]
                 },
                 "name": {
                   "type": "string"
