@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=./plugin-schema.json
+# yaml-language-server: $schema=./../infra-schema.json
 #RUNTIME PLUGIN#
 
 schema-version: v1
@@ -9,6 +9,7 @@ metadata:
   description: ECS Task for ITI applications
   version: 1.0.0
 spec:
+  type: infra
   app-allowed: true
   generates:
     - connection-interface: ecs-task-conn
