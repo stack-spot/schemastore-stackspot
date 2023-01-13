@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=./plugin-schema.json
+# yaml-language-server: $schema=./../infra-schema.json
 #RUNTIME PLUGIN#
 
 schema-version: v1
@@ -10,6 +10,7 @@ metadata:
   version: 1.0.0
 
 spec:
+  type: infra
   app-aLllowed: true
   generates:
     - connection-interface: rds-conn

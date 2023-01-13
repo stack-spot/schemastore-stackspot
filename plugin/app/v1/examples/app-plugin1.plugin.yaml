@@ -1,9 +1,8 @@
-# yaml-language-server: $schema=./plugin-schema.json
-
+# yaml-language-server: $schema=./../app-schema.json
 #APP PLUGIN
 
-stkApiVersion: stkframework.stackspot.com/v0.1
-kind: app-plugin
+schema-version: v1
+kind: plugin
 metadata:
   name: relational-repository
   display-name: Relational Repository
@@ -12,6 +11,7 @@ metadata:
   owner: iti/foundation-team
 
 spec:
+  type: app
   requires:
     - connection-interface: rds-conn
 

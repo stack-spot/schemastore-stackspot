@@ -8,7 +8,7 @@
     "kind": {
       "type": "string",
       "enum": [
-        "plugin"
+        "infra"
       ]
     },
     "metadata": {
@@ -36,8 +36,7 @@
         "name",
         "display-name",
         "description",
-        "version",
-        "owner"
+        "version"
       ]
     },
     "spec": {
@@ -83,16 +82,10 @@
               "type": "object",
               "properties": {
                 "plugin": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                  "type": "string"
                 },
                 "connection-interface": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                  "type": "string"
                 }
               }
             }
@@ -100,8 +93,13 @@
         },
         "generates": {
           "type": "array",
-          "items": {
-            "type": "string"
+          "items":  {
+            "type": "object",
+            "properties": {
+              "connection-interface": {
+                "type": "string"
+              }
+            }
           }
         },
         "inputs": {

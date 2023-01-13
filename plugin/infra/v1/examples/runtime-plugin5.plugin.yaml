@@ -1,8 +1,8 @@
-# yaml-language-server: $schema=./plugin-schema.json
+# yaml-language-server: $schema=./../infra-schema.json
 #RUNTIME PLUGIN#
 
-stkApiVersion: stkframework.stackspot.com/v0.1
-kind: runtime-plugin
+schema-version: v1
+kind: infra
 metadata:
   name: sqs-queue
   display-name: SQS Queue by ITI
@@ -11,6 +11,7 @@ metadata:
   version: 1.0.0
 
 spec:
+  type: infra
   app-aLllowed: true
 
   generates:
