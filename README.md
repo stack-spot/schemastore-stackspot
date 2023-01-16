@@ -23,3 +23,6 @@ The kinds available are:
 1. Install [RedHat's plugin](https://github.com/redhat-developer/vscode-yaml#associating-a-schema-to-a-glob-pattern-via-yamlschemas) to YAML reding on VSCode
 2. Create a yaml file and referece on top of the file the json schema you will use: 
 `# yaml-language-server: $schema=https://github.com/stack-spot/schemastore-stackspot/tree/main/plugin/infra/v1`
+
+## Refs:
+[JsonSchema Editor Visual](https://hellosean1025.github.io/json-schema-visual-editor/)
