@@ -2,7 +2,7 @@
 #RUNTIME PLUGIN#
 
 schema-version: v1
-kind: infra
+kind: plugin
 metadata:
   name: ecs-task
   display-name: ECS Task
