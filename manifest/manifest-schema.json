@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "schema-version": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "manifest"
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "app-id": {
+          "type": "string"
+        },
+        "runtime-version": {
+          "type": "string"
+        }
+      }
+    },
+    "specs": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "infra",
+            "app"
+          ]
+        },
+        "plugins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "inputs": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "memory": {
+                    "type": "object",
+                    "properties": {
+                      "context.memory": {
+                        "type": "null"
+                      }
+                    }
+                  },
+                  "port": {
+                    "type": "object",
+                    "properties": {
+                      "context.port": {
+                        "type": "null"
+                      }
+                    }
+                  },
+                  "table": {
+                    "type": "string"
+                  },
+                  "pk": {
+                    "type": "string"
+                  },
+                  "sk": {
+                    "type": "string"
+                  },
+                  "queue-name": {
+                    "type": "string"
+                  }
+                }
+              },
+              "connector": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "inputs"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
