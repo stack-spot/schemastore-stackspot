@@ -3,8 +3,8 @@
 schema-version: v1
 kind: manifest
 metadata:
-  name: my_app                         #único por Workspace
-  app-id: 11111-22222-33333-44444      #único por Workspace
+  name: my_app                         #(único por Workspace)
+  app-id: 11111-22222-33333-44444      #(único por Workspace)
   runtime-version: 1.0.0               #(versão API Runtime)
 
 specs:
