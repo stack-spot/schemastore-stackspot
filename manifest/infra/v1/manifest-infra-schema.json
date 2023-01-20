@@ -32,8 +32,7 @@
         "type": {
           "type": "string",
           "enum": [
-            "infra",
-            "app"
+            "infra"
           ]
         },
         "plugins": {

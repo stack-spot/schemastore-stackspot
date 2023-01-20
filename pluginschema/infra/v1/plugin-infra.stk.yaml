@@ -7,7 +7,7 @@ tags:
   - "create-plugin-scaffold"
 inputs:
 
-  # parameters always provided by stk create plugin/template
+  # parameters always provided by stk create plugin
  
   - label: "name"
     type: text
@@ -21,8 +21,20 @@ inputs:
   - label: "Add Repository"
     type: bool
     name: "add_repository"
-  
-  # parameters will be asked if not provided by stk create plugin/template options
+
+  - label: "Connection Interface Generated"
+    type: text
+    name: "connection_interface"
+    required: True
+    items:
+      - ecs-task-conn
+      - ecs-cluster-fargate-conn
+      - aws-vpc-conn
+      - sqs-queue-conn
+      - rds-conn
+      - dynamodb-conn
+
+  # parameters will be asked if not provided by stk create plugin options
   - label: "Version"
     type: text
     name: "version"

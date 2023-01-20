@@ -8,7 +8,7 @@
     "kind": {
       "type": "string",
       "enum": [
-        "infra"
+        "plugin"
       ]
     },
     "metadata": {
@@ -45,21 +45,22 @@
         "type": {
           "type": "string",
           "enum": [
+            "app",
             "infra"
           ]
         },
         "compatibility": {
           "type": "array",
           "items": {
-              "type": "string"
+            "type": "string"
           }
         },
         "technologies": {
           "type": "array",
           "items": {
-              "type": "string"
+            "type": "string"
           }
-      },
+        },
         "about": {
           "type": "string"
         },
@@ -93,13 +94,24 @@
         },
         "generates": {
           "type": "array",
-          "items":  {
+          "items": {
             "type": "object",
             "properties": {
               "connection-interface": {
-                "type": "string"
+                "type": "string",
+                "enum": [
+                  "ecs-task-conn",
+                  "ecs-cluster-fargate-conn",
+                  "aws-vpc-conn",
+                  "sqs-queue-conn",
+                  "rds-conn",
+                  "dynamodb-conn"
+                ]
               }
-            }
+            },
+            "required": [
+              "connection-interface"
+            ]
           }
         },
         "inputs": {
@@ -114,13 +126,13 @@
                 "type": {
                   "type": "string",
                   "enum": [
-                      "text",
-                      "bool",
-                      "int",
-                      "password",
-                      "multiselect",
-                      "list"
-                    ]
+                    "text",
+                    "bool",
+                    "int",
+                    "password",
+                    "multiselect",
+                    "list"
+                  ]
                 },
                 "name": {
                   "type": "string"
@@ -136,7 +148,8 @@
         }
       },
       "required": [
-        "type"
+        "type",
+        "generates"
       ]
     }
   },
