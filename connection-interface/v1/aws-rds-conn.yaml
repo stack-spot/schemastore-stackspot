@@ -1,0 +1,26 @@
+schemaVersion: v1
+kind: connection-interface
+metadata:
+  name: AWS RDS CONNECTION INTERFACE
+  description: Connection Interface for AWS RDS
+  display-name: aws-rds-connection-interface
+  version: 1.0.0
+  picture: connection.png
+spec:
+  type: aws-rds-conn
+  outputs:
+    - name: type
+      type: string
+    - name: name
+      type: string
+    - name: host
+      type: string
+    - name: port
+      type: string
+    - name: user
+      type: string
+    - name: pass
+      type: secret
+    - name: policy
+      type: secret
+      required: false

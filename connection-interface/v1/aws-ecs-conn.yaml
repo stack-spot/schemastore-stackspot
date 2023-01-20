@@ -1,0 +1,21 @@
+schemaVersion: v1
+kind: connection-interface
+metadata:
+  name: AWS ECS CONNECTION INTERFACE
+  description: Connection Interface for AWS ECS
+  display-name: aws-ecs-connection-interface
+  version: 1.0.0
+  picture: connection.png
+spec:
+  type: aws-ecs-conn
+  outputs:
+     - name: autoscaling_capacity_providers
+       type: json
+     - name: cluster_arn
+       type: secret
+     - name: cluster_capacity_providers
+       type: json
+     - name: cluster_id
+       type: secret
+     - name: cluster_name
+       type: string
