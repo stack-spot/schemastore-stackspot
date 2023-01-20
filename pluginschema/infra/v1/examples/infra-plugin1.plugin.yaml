@@ -12,7 +12,8 @@ spec:
   type: infra
   app-allowed: true
   generates:
-    - connection-interface: ecs-task-conn
+    - connection-interface: aws-vpc-conn
+  requires:
     - connection-interface: ecs-cluster-fargate-conn
     - connection-interface: aws-vpc-conn
   inputs:

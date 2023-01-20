@@ -22,7 +22,7 @@ spec:
     - Api
   app-allowed: true #optional default true
   generates:
-      - connection-interface: ecs-task-conn
+      - connection-interface: {{connection_interface}}
   requires:
     connection-interface:
       - lambda-conn

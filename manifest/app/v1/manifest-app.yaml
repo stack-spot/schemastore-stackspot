@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=./manifest-infra-schema.json
+# yaml-language-server: $schema=./manifest-app-schema.json
 # APP
 schema-version: v1
 kind: manifest
