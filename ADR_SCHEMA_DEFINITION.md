@@ -28,7 +28,7 @@ metadata:
   version: 1.0.0  #required
   picture: plugin.png  #optional  
 spec:
-  type: app   #required
+  type: app   #required for Plugin kind
   ...      
  ```
 
