@@ -9,18 +9,17 @@ metadata:
 spec:
   type: aws-rds-conn
   outputs:
-    - name: type
+    type:
       type: string
-    - name: name
+    name:
       type: string
-    - name: host
+    host:
       type: string
-    - name: port
+    port:
       type: string
-    - name: user
+    user:
       type: string
-    - name: pass
+    pass:
       type: secret
-    - name: policy
+    policy:
       type: secret
-      required: false
