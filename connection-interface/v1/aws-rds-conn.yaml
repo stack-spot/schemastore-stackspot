@@ -23,3 +23,4 @@ spec:
       type: secret
     policy:
       type: secret
+      required: false
