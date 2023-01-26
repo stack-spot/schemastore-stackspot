@@ -9,13 +9,19 @@ metadata:
 spec:
   type: aws-ecs-conn
   outputs:
-     - name: autoscaling_capacity_providers
-       type: json
-     - name: cluster_arn
+     autoscaling_capacity_providers:
+       type: array
+       items:
+          autoscaling_capacity_provider:
+            type: string
+     cluster_arn:
        type: secret
-     - name: cluster_capacity_providers
-       type: json
-     - name: cluster_id
+     cluster_capacity_providers:
+       type: array
+       items:
+          cluster_capacity_provider:
+            type: string
+     cluster_id:
        type: secret
-     - name: cluster_name
+     cluster_name:
        type: string
