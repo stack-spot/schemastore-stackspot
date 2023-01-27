@@ -48,7 +48,7 @@
                             "null",
                             "boolean",
                             "secret",
-                            "objecy",
+                            "object",
                             "array",
                             "number",
                             "string"
