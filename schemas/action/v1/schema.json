@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+      "schema-version": {
+        "type": "string",
+        "enum": ["v1"]
+      },
+      "kind": {
+        "type": "string",
+        "enum": ["action"]
+      },
+      "metadata": {
+        "$ref": "../../metadata/v1/schema.json"
+      }
+    },
+    "required": [
+      "schema-version",
+      "kind",
+      "metadata"
+    ]
+}

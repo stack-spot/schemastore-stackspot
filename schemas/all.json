@@ -1,0 +1,14 @@
+{
+    "properties": {
+      "schema-version": {
+        "type": "string"
+      },
+      "kind": {
+        "type": "string"
+      }
+    },
+    "anyOf": [
+        {"$ref": "./plugin/v1/schema.json"},
+        {"$ref": "./action/v1/schema.json"}
+    ]
+  }
