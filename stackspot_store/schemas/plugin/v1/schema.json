@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "schema-version": {
+      "type": "string",
+      "enum": ["v1"]
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["plugin"]
+    },
+    "metadata": {
+      "$ref": "../../metadata/v1/schema.json"
+    },
+    "spec": {
+      "$ref": "./_definitions.json#/definitions/spec"
+    }
+  },
+  "required": [
+    "schema-version",
+    "kind",
+    "metadata",
+    "spec"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+    "properties": {
+      "schema-version": {
+        "type": "string"
+      },
+      "kind": {
+        "type": "string",
+        "enum": ["plugin", "action"]
+      }
+    },
+    "anyOf": [
+        {"$ref": "./plugin/v1/schema.json"},
+        {"$ref": "./action/v1/schema.json"}
+    ]
+  }
