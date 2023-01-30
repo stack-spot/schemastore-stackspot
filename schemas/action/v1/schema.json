@@ -10,7 +10,7 @@
         "enum": ["action"]
       },
       "metadata": {
-        "$ref": "./_definitions.json#/definitions/plugin.metadata.v1"
+        "$ref": "../../metadata/v1/schema.json"
       }
     },
     "required": [
