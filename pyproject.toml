@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pluginschema"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["andre-cintra <andre.cintra@zup.com.br>"]
 
