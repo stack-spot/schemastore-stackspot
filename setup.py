@@ -4,8 +4,8 @@ with open("README.md") as f:
     long_description = f.read()
 
 setup(
-    name="pluginschema",
-    version="0.1.1",
+    name="stackspot_store",
+    version="0.1.2",
     description="",
     long_description=long_description,
     url="https://github.com/stack-spot/schemastore-stackspot",
