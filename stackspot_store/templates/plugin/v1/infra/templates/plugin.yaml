@@ -20,12 +20,6 @@ spec:
   release-notes: docs/release-notes-{{version}}.md
   technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
     - Api
-  app-allowed: true #optional default true
-  generates:
-      - connection-interface: {{connection_interface}}
-  requires:
-    connection-interface:
-      - lambda-conn
   inputs:
     - label: Type name of your resource
       name: resource
