@@ -17,12 +17,12 @@
                 "name": {
                     "type": "object",
                     "properties": {
-                       "type": {
-                        "type": "string",
-                        "enum": [
-                            "aws-ecs-conn",
-                            "aws-rds-conn"
-                        ]
+                        "type": {
+                            "type": "string",
+                            "enum": [
+                                "aws-ecs-conn",
+                                "aws-rds-conn"
+                            ]
                         }
                     }
                 },
