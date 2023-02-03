@@ -41,27 +41,19 @@
             ]
         },
         "spec": {
-                "outputs": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {
-                                "type": "string"
-                            },
-                            "type": {
-                                "type": "string",
-                                "enum": [
-                                    "string",
-                                    "integer",
-                                    "secret",
-                                    "json"
-                                ]
-                            },
-                            "required": {
-                                "type": "boolean"
-                            }
-                        }
+            "outputs": {
+                "type": "array",
+                "items": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "boolean",
+                            "secret",
+                            "objecy",
+                            "array",
+                            "number",
+                            "string"
+                        ]
                     }
                 }
             }
