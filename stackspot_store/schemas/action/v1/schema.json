@@ -10,7 +10,7 @@
         "enum": ["action"]
       },
       "metadata": {
-        "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/metadata/v1/schema.json"
+        "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/feat/remote-ref/stackspot_store/schemas/metadata/v1/schema.json"
       }
     },
     "required": [
