@@ -4,36 +4,27 @@
             "type": "string"
         },
         "inputs": {
-            "type": "array",
-            "items": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "label": {
-                            "type": "string"
-                        },
-                        "type": {
-                            "type": "string",
-                            "enum": [
-                                "text",
-                                "bool",
-                                "int",
-                                "password",
-                                "multiselect",
-                                "list"
-                            ]
-                        },
-                        "name": {
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "label",
-                        "type",
-                        "name"
-                    ]
+          "type": "array",
+          "items": {
+              "type": "object",
+              "required": ["label", "name", "type"],
+              "properties": {
+                  "label": {"type": "string"},
+                  "name": {"type": "string"},
+                  "type": {
+                      "type": "string",
+                      "enum": ["text", "bool", "int", "password", "multiselect", "select"]
+                  },
+                  "required": {"type": "boolean"},
+                  "pattern": {"type": "string"},
+                  "help": {"type": "string"},
+                  "default": {"type": "string"},
+                  "items": {
+                      "type": "array",
+                      "items": {"type": "string"}
+                    }
                 }
-            ]
+            }
         },
         "generates": {
           "type": "array",
