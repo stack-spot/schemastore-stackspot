@@ -26,7 +26,7 @@
     "spec"
   ],
   "anyOf": [
-      {"$ref": "./app-schema.json"},
-      {"$ref": "./infra-schema.json"}
+      {"$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/app-schema.json"},
+      {"$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/infra-schema.json"}
   ]
 }
