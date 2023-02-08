@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+      "schema-version": {
+        "type": "string",
+        "enum": ["v1"]
+      },
+      "kind": {
+        "type": "string",
+        "enum": ["plugin"]
+      },
+      "metadata": {
+        "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/metadata/v1/schema.json"
+      },
+      "spec": {   
+        "type": "object", 
+        "properties": {
+          "type": { "type": "string", "enum": ["infra"] },
+          "about": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/markdown" },
+          "implementation": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/markdown" },
+          "requirements": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/markdown" },
+          "release-notes": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/markdown" },
+          "inputs": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/inputs" },
+          "inputs-envs": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/inputs" },
+          "compatibility": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/compatibility" },
+          "technologies": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/technologies" },
+          "repository": { "type": "string"},
+          "generates": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/generates" },
+          "requires": {
+            "type": "object",
+            "properties": {
+              "connection-interface": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            }
+          }
+        },
+        "required": ["type", "generates"]
+      }
+    },
+    "required": [
+      "schema-version",
+      "kind",
+      "metadata",
+      "spec"
+    ]
+  }

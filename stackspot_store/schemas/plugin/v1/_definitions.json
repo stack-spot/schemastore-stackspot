@@ -5,49 +5,43 @@
       },
       "inputs": {
           "type": "array",
-          "items": [
-              {
-                  "type": "object",
-                  "properties": {
-                      "label": {
-                          "type": "string"
-                      },
-                      "type": {
-                          "type": "string",
-                          "enum": [
-                              "text",
-                              "bool",
-                              "int",
-                              "password",
-                              "multiselect",
-                              "list"
-                          ]
-                      },
-                      "name": {
-                          "type": "string"
-                      }
-                  },
-                  "required": [
-                      "label",
-                      "type",
-                      "name"
-                  ]
-              }
-          ]
+          "items": {
+            "type": "object",
+            "required": ["label", "name", "type"],
+            "properties": {
+                "label": {"type": "string"},
+                "name": {"type": "string"},
+                "type": {
+                    "type": "string",
+                    "enum": ["text", "bool", "int", "password", "multiselect", "select"]
+                },
+                "required": {"type": "boolean"},
+                "pattern": {"type": "string"},
+                "help": {"type": "string"},
+                "default": {"type": "string"},
+                "items": {
+                    "type": "array",
+                    "items": {"type": "string"}
+                }
+            }
+        }
       },
       "generates": {
         "type": "object",
         "properties": {
           "connection-interface": {
-            "type": "string",
-            "enum": [
-              "ecs-task-conn",
-              "ecs-cluster-fargate-conn",
-              "aws-vpc-conn",
-              "sqs-queue-conn",
-              "rds-conn",
-              "dynamodb-conn"
-            ]
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ecs-task-conn",
+                "ecs-cluster-fargate-conn",
+                "aws-vpc-conn",
+                "sqs-queue-conn",
+                "rds-conn",
+                "dynamodb-conn"
+              ]
+            }
           }
         },
         "required": [
@@ -65,60 +59,6 @@
         "items": {
             "type": "string"
         }
-      },
-      "type-app": {
-        "properties": {
-          "type": { "type": "string", "enum": ["app"] },
-          "requires": {
-            "type": "object",
-            "properties": {
-              "plugin": {
-                "type": "array",
-                "items": [{"type": "string"}]
-              },
-              "connection-interface": {
-                "type": "array",
-                "items": [{"type": "string"}]
-              }
-            }
-          }
-        },
-        "required": ["type"]
-      },
-      "type-infra": {
-        "properties": {
-          "type": { "type": "string", "enum": ["infra"] },
-          "generates": { "$ref": "#/definitions/generates" },
-          "requires": {
-            "type": "object",
-            "properties": {
-              "connection-interface": {
-                "type": "array",
-                "items": [{"type": "string"}]
-              }
-            }
-          }
-        },
-        "required": ["type", "generates"]
-      },
-      "spec": {     
-          "type": "object", 
-          "properties": {
-            "type": { "type": "string", "enum": ["app", "infra"] },
-            "about": { "$ref": "#/definitions/markdown" },
-            "implementation": { "$ref": "#/definitions/markdown" },
-            "requirements": { "$ref": "#/definitions/markdown" },
-            "release-notes": { "$ref": "#/definitions/markdown" },
-            "inputs": { "$ref": "#/definitions/inputs" },
-            "inputs-envs": { "$ref": "#/definitions/inputs" },
-            "compatibility": { "$ref": "#/definitions/compatibility" },
-            "technologies": { "$ref": "#/definitions/technologies" },
-            "repository": { "type": "string"}
-          },
-          "anyOf": [
-              {"$ref": "#/definitions/type-app"},
-              {"$ref": "#/definitions/type-infra"}
-          ]
       }
   }
 }
