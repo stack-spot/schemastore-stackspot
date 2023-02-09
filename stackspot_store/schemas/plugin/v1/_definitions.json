@@ -26,22 +26,25 @@
             }
         }
       },
+      "connection-interface": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "ecs-task-conn",
+            "ecs-cluster-fargate-conn",
+            "aws-vpc-conn",
+            "sqs-queue-conn",
+            "rds-conn",
+            "dynamodb-conn"
+          ]
+        }
+      },
       "generates": {
         "type": "object",
         "properties": {
           "connection-interface": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "ecs-task-conn",
-                "ecs-cluster-fargate-conn",
-                "aws-vpc-conn",
-                "sqs-queue-conn",
-                "rds-conn",
-                "dynamodb-conn"
-              ]
-            }
+            "$ref": "#/definitions/connection-interface"
           }
         },
         "required": [
