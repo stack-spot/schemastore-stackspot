@@ -22,6 +22,18 @@ inputs:
     type: bool
     name: "add_repository"
 
+  - label: "Connection Interface Generated"
+    type: multiselect
+    name: "connection_interfaces"
+    required: True
+    items:
+      - ecs-task-conn
+      - ecs-cluster-fargate-conn
+      - aws-vpc-conn
+      - sqs-queue-conn
+      - rds-conn
+      - dynamodb-conn
+
   # parameters will be asked if not provided by stk create plugin options
   - label: "Version"
     type: text
