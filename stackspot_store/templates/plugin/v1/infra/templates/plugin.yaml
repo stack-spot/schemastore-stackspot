@@ -22,7 +22,7 @@ spec:
     - Api
   generates:
     connection-interface:
-      { % for connection_interface in connection_interfaces % }
+      {% for connection_interface in connection_interfaces %}
       - {{connection_interface}}
       {% endfor %}
   inputs:
