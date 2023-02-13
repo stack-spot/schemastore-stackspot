@@ -24,7 +24,7 @@
           "inputs-envs": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/inputs" },
           "compatibility": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/compatibility" },
           "technologies": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/technologies" },
-          "repository": { "type": "string"},
+          "repository": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/repository" },
           "generates": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/generates" },
           "requires": {
             "type": "object",

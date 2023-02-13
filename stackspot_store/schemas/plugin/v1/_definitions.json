@@ -62,6 +62,13 @@
         "items": {
             "type": "string"
         }
+      },
+      "repository": {
+        "type": "string"
+      },
+      "requires-plugin": {
+        "type": "array",
+        "items": {"type": "string"}
       }
   }
 }

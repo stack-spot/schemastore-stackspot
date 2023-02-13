@@ -24,14 +24,11 @@
           "inputs-envs": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/inputs" },
           "compatibility": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/compatibility" },
           "technologies": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/technologies" },
-          "repository": { "type": "string"},
+          "repository": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/repository" },
           "requires": {
             "type": "object",
             "properties": {
-              "plugin": {
-                "type": "array",
-                "items": {"type": "string"}
-              },
+              "plugin": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/requires-plugin" },
               "connection-interface": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/connection-interface" }
             }
           }
