@@ -32,10 +32,7 @@
                 "type": "array",
                 "items": {"type": "string"}
               },
-              "connection-interface": {
-                "type": "array",
-                "items": {"type": "string"}
-              }
+              "connection-interface": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/connection-interface" }
             }
           }
         },
