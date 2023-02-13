@@ -20,6 +20,11 @@ spec:
   release-notes: docs/release-notes-{{version}}.md
   technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
     - Api
+  generates:
+    connection-interface:
+      {% for connection_interface in connection_interfaces %}
+      - {{connection_interface}}
+      {% endfor %}
   inputs:
     - label: Type name of your resource
       name: resource
@@ -30,7 +35,7 @@ spec:
       help: 'Inform your resource name (e.g.: Client)'
     - label: Choose http method of new endpoint
       name: method
-      type: select
+      type: text
       items:
         - GET
         - POST

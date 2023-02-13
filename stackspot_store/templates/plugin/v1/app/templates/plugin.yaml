@@ -33,7 +33,7 @@ spec:
       help: 'Inform your resource name (e.g.: Client)'
     - label: Choose http method of new endpoint
       name: method
-      type: select
+      type: text
       items:
         - GET
         - POST
