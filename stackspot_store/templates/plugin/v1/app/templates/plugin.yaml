@@ -22,7 +22,7 @@ spec:
     - Api
   requires:
     connection-interface:
-      - lambda-conn
+      - ecs-task-conn
   inputs:
     - label: Type name of your resource
       name: resource
