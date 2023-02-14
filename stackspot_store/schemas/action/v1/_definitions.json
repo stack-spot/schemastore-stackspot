@@ -1,0 +1,188 @@
+{
+    "definitions": {
+        "inputs": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "label",
+                    "name",
+                    "type"
+                ],
+                "properties": {
+                    "label": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "text",
+                            "bool",
+                            "int",
+                            "password",
+                            "multiselect",
+                            "select"
+                        ]
+                    },
+                    "required": {
+                        "type": "boolean"
+                    },
+                    "pattern": {
+                        "type": "string"
+                    },
+                    "help": {
+                        "type": "string"
+                    },
+                    "default": {
+                        "type": "string"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "scopes": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "local",
+                    "remote"
+                ]
+            }
+        },
+        "requires": {
+            "type": "string"
+        },
+        "dir-path": {
+            "type": "string"
+        },
+        "container": {
+            "type": "object",
+            "properties": {
+                "spec": {
+                    "type": "string"
+                },
+                "volumes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dir-path"
+                    }
+                }
+            }
+        },
+        "python": {
+            "type": "object",
+            "properties": {
+                "workdir": {
+                    "$ref": "#/definitions/dir-path"
+                },
+                "script": {
+                    "type": "string"
+                }
+            }
+        },
+        "shell": {
+            "type": "object",
+            "properties": {
+                "workdir": {
+                    "$ref": "#/definitions/dir-path"
+                },
+                "supported-os": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "macos",
+                            "linux",
+                            "windows"
+                        ]
+                    }
+                },
+                "requirement-check": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "check-command": {
+                                "type": "string"
+                            },
+                            "info": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "script": {
+                    "type": "object",
+                    "properties": {
+                        "windows": {
+                            "type": "string"
+                        },
+                        "linux": {
+                            "type": "string"
+                        },
+                        "macos": {
+                            "type": "string"
+                        },
+                        "default": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "webservice": {
+            "type": "object",
+            "properties": {
+                "url": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string",
+                    "enum": [
+                        "GET",
+                        "POST",
+                        "PUT",
+                        "PATCH",
+                        "DELETE"
+                    ]
+                },
+                "headers": {
+                    "type": "object",
+                    "properties": {}
+                },
+                "responses": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "integer"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "format": {
+                                "type": "string"
+                            },
+                            "message": {
+                                "type": "string"
+                            },
+                            "outputs": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

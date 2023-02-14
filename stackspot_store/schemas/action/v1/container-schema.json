@@ -1,0 +1,54 @@
+{
+    "type": "object",
+    "properties": {
+        "schema-version": {
+            "type": "string",
+            "enum": [
+                "v1"
+            ]
+        },
+        "kind": {
+            "type": "string",
+            "enum": [
+                "action"
+            ]
+        },
+        "metadata": {
+            "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/metadata/v1/schema.json"
+        },
+        "spec": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "container"
+                    ]
+                },
+                "scopes": {
+                    "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/action/v1/_definitions.json#/definitions/scopes"
+                },
+                "requires": {
+                    "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/action/v1/_definitions.json#/definitions/requires"
+                },
+                "inputs": {
+                    "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/action/v1/_definitions.json#/definitions/inputs"
+                },
+                "container": {
+                    "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/action/v1/_definitions.json#/definitions/container"
+                }
+            },
+            "required": [
+                "type",
+                "scopes",
+                "container"
+            ]
+        }
+    },
+    "required": [
+        "schema-version",
+        "kind",
+        "metadata",
+        "spec"
+    ]
+}
