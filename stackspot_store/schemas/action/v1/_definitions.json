@@ -62,7 +62,10 @@
         },
         "requires": {
             "description": "Defines the connection intefaces which an action depends",
-            "type": "string"
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         },
         "dir-path": {
             "type": "string"
