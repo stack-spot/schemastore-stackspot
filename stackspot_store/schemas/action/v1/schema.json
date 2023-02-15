@@ -1,21 +1,55 @@
 {
     "type": "object",
     "properties": {
-      "schema-version": {
-        "type": "string",
-        "enum": ["v1"]
-      },
-      "kind": {
-        "type": "string",
-        "enum": ["action"]
-      },
-      "metadata": {
-        "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/metadata/v1/schema.json"
-      }
+        "schema-version": {
+            "type": "string",
+            "enum": [
+                "v1"
+            ]
+        },
+        "kind": {
+            "type": "string",
+            "enum": [
+                "action"
+            ]
+        },
+        "metadata": {
+            "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/metadata/v1/schema.json"
+        },
+        "spec": {
+            "description": "The type of action",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "container",
+                        "shell",
+                        "python",
+                        "webservice"
+                    ]
+                }
+            }
+        }
     },
     "required": [
-      "schema-version",
-      "kind",
-      "metadata"
+        "schema-version",
+        "kind",
+        "metadata",
+        "spec"
+    ],
+    "anyOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/action/v1/container-schema.json"
+        },
+        {
+            "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/action/v1/python-schema.json"
+        },
+        {
+            "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/action/v1/shell-schema.json"
+        },
+        {
+            "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/action/v1/web-schema.json"
+        }
     ]
 }
