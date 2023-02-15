@@ -101,7 +101,6 @@
                 }
             },
             "required": [
-                "workdir",
                 "script"
             ]
         },
@@ -162,7 +161,6 @@
                 }
             },
             "required": [
-                "workdir",
                 "script"
             ]
         },
@@ -183,7 +181,8 @@
                         "PUT",
                         "PATCH",
                         "DELETE"
-                    ]
+                    ],
+                    "default": "GET"
                 },
                 "headers": {
                     "description": "Headers of request",
@@ -219,7 +218,8 @@
                                 "enum": [
                                     "json",
                                     "xml"
-                                ]
+                                ],
+                                "default": "json"
                             },
                             "message": {
                                 "message": "Message to be showed if the status code of execution matches",
@@ -233,7 +233,6 @@
                         "required": [
                             "status",
                             "type",
-                            "format",
                             "message"
                         ]
                     }
@@ -241,7 +240,6 @@
             },
             "required": [
                 "url",
-                "method",
                 "responses"
             ]
         }
