@@ -1,6 +1,7 @@
 {
     "definitions": {
         "inputs": {
+            "description": "Defines the inputs of execution of an action",
             "type": "array",
             "items": {
                 "type": "object",
@@ -49,6 +50,7 @@
             }
         },
         "scopes": {
+            "description": "Scopes of execution supported by an action",
             "type": "array",
             "items": {
                 "type": "string",
@@ -59,43 +61,60 @@
             }
         },
         "requires": {
+            "description": "Defines the connection intefaces which an action depends",
             "type": "string"
         },
         "dir-path": {
             "type": "string"
         },
         "container": {
+            "description": "Definitions of a container action",
             "type": "object",
             "properties": {
                 "spec": {
+                    "description": "Dockerfile relative path from action root dir",
                     "type": "string"
                 },
                 "volumes": {
+                    "description": "List of volumes to be mapped between host and container",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/dir-path"
                     }
                 }
-            }
+            },
+            "required": [
+                "spec"
+            ]
         },
         "python": {
+            "description": "Definitions of a python action",
             "type": "object",
             "properties": {
                 "workdir": {
+                    "description": "Where the run should be executed",
                     "$ref": "#/definitions/dir-path"
                 },
                 "script": {
+                    "description": "Path to a python script",
                     "type": "string"
                 }
-            }
+            },
+            "required": [
+                "workdir",
+                "script"
+            ]
         },
         "shell": {
+            "shell": "Definitions of a shell action",
             "type": "object",
             "properties": {
                 "workdir": {
+                    "description": "Where the run should be executed",
                     "$ref": "#/definitions/dir-path"
                 },
                 "supported-os": {
+                    "description": "OS which the action support",
                     "type": "array",
                     "items": {
                         "type": "string",
@@ -107,20 +126,24 @@
                     }
                 },
                 "requirement-check": {
+                    "description": "Commands which are executed before the runtime to check if the action is ready to be executed",
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
                             "check-command": {
+                                "description": "Shell command",
                                 "type": "string"
                             },
                             "info": {
+                                "description": "The infomation message which will be displayed in cases of failure",
                                 "type": "string"
                             }
                         }
                     }
                 },
                 "script": {
+                    "description": "Commands of the action",
                     "type": "object",
                     "properties": {
                         "windows": {
@@ -137,15 +160,22 @@
                         }
                     }
                 }
-            }
+            },
+            "required": [
+                "workdir",
+                "script"
+            ]
         },
         "webservice": {
+            "description": "Definitions of a webservice action",
             "type": "object",
             "properties": {
                 "url": {
+                    "description": "URL of request",
                     "type": "string"
                 },
                 "method": {
+                    "description": "HTTP method of request",
                     "type": "string",
                     "enum": [
                         "GET",
@@ -156,33 +186,64 @@
                     ]
                 },
                 "headers": {
+                    "description": "Headers of request",
+                    "type": "object",
+                    "properties": {}
+                },
+                "body": {
+                    "description": "Body of request",
                     "type": "object",
                     "properties": {}
                 },
                 "responses": {
+                    "description": "Expected responses of request",
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
                             "status": {
+                                "description": "Http status code expected",
                                 "type": "integer"
                             },
                             "type": {
-                                "type": "string"
+                                "description": "Type of response",
+                                "type": "string",
+                                "enum": [
+                                    "success",
+                                    "error"
+                                ]
                             },
                             "format": {
-                                "type": "string"
+                                "description": "Response format expected",
+                                "type": "string",
+                                "enum": [
+                                    "json",
+                                    "xml"
+                                ]
                             },
                             "message": {
+                                "message": "Message to be showed if the status code of execution matches",
                                 "type": "string"
                             },
                             "outputs": {
+                                "message": "Output attributes map",
                                 "type": "object"
                             }
-                        }
+                        },
+                        "required": [
+                            "status",
+                            "type",
+                            "format",
+                            "message"
+                        ]
                     }
                 }
-            }
+            },
+            "required": [
+                "url",
+                "method",
+                "responses"
+            ]
         }
     }
 }
