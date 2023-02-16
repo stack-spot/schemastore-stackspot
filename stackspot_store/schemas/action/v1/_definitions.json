@@ -115,18 +115,6 @@
                     "description": "Where the run should be executed",
                     "$ref": "#/definitions/dir-path"
                 },
-                "supported-os": {
-                    "description": "OS which the action support",
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "enum": [
-                            "macos",
-                            "linux",
-                            "windows"
-                        ]
-                    }
-                },
                 "requirement-check": {
                     "description": "Commands which are executed before the runtime to check if the action is ready to be executed",
                     "type": "array",
@@ -155,9 +143,6 @@
                             "type": "string"
                         },
                         "macos": {
-                            "type": "string"
-                        },
-                        "default": {
                             "type": "string"
                         }
                     }
