@@ -193,6 +193,7 @@
                     "properties": {}
                 },
                 "body": {
+                    "description": "Body of request",
                     "anyOf": [
                         {
                             "type": "object",
