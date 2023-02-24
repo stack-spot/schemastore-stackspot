@@ -11,13 +11,12 @@ spec:
   compatibility:
     - python
   about: docs/about.md
-  usage: docs/usage.md
   implementation: docs/implementation.md
+  release-notes: docs/release-notes-{{version}}.md
   requirements: docs/requirements.md
   {% if add_repository %}
   repository: {{repository}}
   {% endif %}
-  release-notes: docs/release-notes-{{version}}.md
   technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
     - Api
   requires:
