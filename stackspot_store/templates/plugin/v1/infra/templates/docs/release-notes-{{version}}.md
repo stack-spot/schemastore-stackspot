@@ -1,1 +1,3 @@
-# Release Notes {{version}}
+Release Notes {{version}}
+- Item A
+- Item B

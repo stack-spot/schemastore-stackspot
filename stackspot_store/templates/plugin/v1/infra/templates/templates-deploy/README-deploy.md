@@ -1,3 +1,4 @@
+## StackSpot Plugin
 
 ## Jinja
 
