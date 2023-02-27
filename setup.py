@@ -5,7 +5,7 @@ with open("README.md") as f:
 
 setup(
     name="stackspot_store",
-    version="0.1.7",
+    version="0.1.10",
     description="",
     long_description=long_description,
     url="https://github.com/stack-spot/schemastore-stackspot",

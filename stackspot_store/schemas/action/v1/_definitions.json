@@ -49,6 +49,20 @@
                 }
             }
         },
+        "shell-command": {
+            "type": "object",
+            "properties": {
+                "windows": {
+                    "type": "string"
+                },
+                "linux": {
+                    "type": "string"
+                },
+                "macos": {
+                    "type": "string"
+                }
+            }
+        },
         "requires": {
             "description": "Defines the connection intefaces which an action depends",
             "type": "array",
@@ -110,9 +124,8 @@
                     "items": {
                         "type": "object",
                         "properties": {
-                            "check-command": {
-                                "description": "Shell command",
-                                "type": "string"
+                            "command": {
+                                "$ref": "#/definitions/shell-command"
                             },
                             "info": {
                                 "description": "The infomation message which will be displayed in cases of failure",
@@ -123,18 +136,7 @@
                 },
                 "script": {
                     "description": "Commands of the action",
-                    "type": "object",
-                    "properties": {
-                        "windows": {
-                            "type": "string"
-                        },
-                        "linux": {
-                            "type": "string"
-                        },
-                        "macos": {
-                            "type": "string"
-                        }
-                    }
+                    "$ref": "#/definitions/shell-command"
                 }
             },
             "required": [
