@@ -49,17 +49,6 @@
                 }
             }
         },
-        "scopes": {
-            "description": "Scopes of execution supported by an action",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "enum": [
-                    "local",
-                    "remote"
-                ]
-            }
-        },
         "requires": {
             "description": "Defines the connection intefaces which an action depends",
             "type": "array",
