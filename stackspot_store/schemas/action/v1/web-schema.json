@@ -25,9 +25,6 @@
                         "webservice"
                     ]
                 },
-                "scopes": {
-                    "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/action/v1/_definitions.json#/definitions/scopes"
-                },
                 "requires": {
                     "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/action/v1/_definitions.json#/definitions/requires"
                 },
