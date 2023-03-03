@@ -129,13 +129,13 @@
                     "description": "Where the run should be executed",
                     "$ref": "#/definitions/dir-path"
                 },
-                "requirement-check": {
+                "requirements-check": {
                     "description": "Commands which are executed before the runtime to check if the action is ready to be executed",
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "command": {
+                            "check-command": {
                                 "$ref": "#/definitions/shell-command"
                             },
                             "info": {
