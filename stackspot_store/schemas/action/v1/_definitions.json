@@ -1,5 +1,11 @@
 {
     "definitions": {
+        "markdown": {
+            "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
         "inputs": {
             "description": "Defines the inputs of execution of an action",
             "type": "array",
