@@ -68,7 +68,10 @@
       },
       "requires-plugin": {
         "type": "array",
-        "items": {"type": "string"}
+        "items": {
+          "type": "string",
+          "pattern": "^.*\/.*\/.*@.*$"
+        }
       }
   }
 }

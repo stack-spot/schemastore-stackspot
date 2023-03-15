@@ -70,10 +70,15 @@
             }
         },
         "requires": {
-            "description": "Defines the connection intefaces which an action depends",
-            "type": "array",
-            "items": {
-                "type": "string"
+            "description": "Defines entities which an action depends",
+            "type": "object",
+            "properties":{
+                "connection-interface":{
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
             }
         },
         "dir-path": {
