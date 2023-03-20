@@ -26,7 +26,7 @@ spec:
     - label: Type name of your resource
       name: resource
       type: text
-      required: true  #defautl false
+      required: true
       default: Client
       pattern: '([A-Z][a-z]+)+'
       help: 'Inform your resource name (e.g.: Client)'
