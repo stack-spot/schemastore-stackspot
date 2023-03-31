@@ -19,11 +19,11 @@ spec:
   {% endif %}
   technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
     - Api
-  {% if connection_interfaces %}
+  {% if connection_interface_types %}
   requires:
     connection-interface:
-      {% for connection_interfaces in connection_interfaces %}
-      - {{connection_interface}}
+      {% for connection_interface_type in connection_interface_types %}
+      - {{connection_interface_type}}
       {% endfor %}
   {% endif %}
   inputs:
