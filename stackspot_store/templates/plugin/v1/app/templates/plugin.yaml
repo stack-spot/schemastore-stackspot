@@ -19,9 +19,13 @@ spec:
   {% endif %}
   technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
     - Api
+  {% if connection_interface_types %}
   requires:
     connection-interface:
-      - ecs-task-conn
+      {% for connection_interface_type in connection_interface_types %}
+      - {{connection_interface_type}}
+      {% endfor %}
+  {% endif %}
   inputs:
     - label: Type name of your resource
       name: resource
