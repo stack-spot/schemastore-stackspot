@@ -1,56 +1,47 @@
-# yaml-language-server: $schema=./manifest-infra-schema.json
-# INFRA
+# yaml-language-server: $schema=./manifest-app-schema.json
+# INFR
 schema-version: v1
 kind: manifest
 metadata:
-  name: my_infra                  #(único por Workspace)
-  app-id: 11111-22222-33333-44444       #(único por Workspace)
-  runtime-version: 1.0.0                #(versão API Runtime)
+  name: my_infra                                            #(único por Workspace)
+  description: Descreva sua infra explicando sua finalidade
+  stack: demo-create-studio1/demo-stack
+  stack-version-id: 01GXHFTEJ891VARHYSGAD90K4N
 
-specs:
-  type: infra
+spec:
+  type: app
+  infra-id: 11111-22222-33333-44444                         #(único por Workspace) [Opcional] * Só é criado após o registro do app
 
   plugins:
-    - name: stack/ecs-task@v3                    #(applied plugin - para criação de um ECS Task)
-      type: runtime
-      inputs:
-         memory: {context.memory}                #(pega do contexto por ambiente)
-         port: {context.port}                    #(para todos os ambientes)
-      connector:
-         - name: <CONNECTOR NAME 1>              #(escolhido)
-           type: ecs-cluster-conn
+    - name: account/studio/stack/microservices@v3       #(applied plugin)
+      plugin-version-id: 01GXGJXAFXDCYJEJ81KH67KJNT
+      type: infra
+      inputs: # Objeto Chave valor
+        namespace: Teste
+        container_image: image-teste
+        port: '80'
+        check_env: false
+      inputs-envs: {} # Objeto com Objeto com Chave e Valor
+      connectors: # Array de objeto com name e type
+        - name: eks-conn-demo1
+          type: aws-eks-conn
 
-    - name: another_stack/dynamo-repository@v3   #(applied plugin - para criação de novo banco)
-      type: runtime
-      inputs:
-      connector:
-         - name: dynamo-conn                     #(interface)
-           id: db1
+    - name: test/integration-test/dotnet-errorhandler-plugin@0.0.1 #(applied plugin)
+      plugin-version-id: 01GWJASJ2S910MV4V0CK5J2GGG
+      type: infra
+      inputs: {} # Objeto Chave valor
+      inputs-envs: # Objeto com Objeto com Chave e Valor
+        domain:
+          prd: https://www.test.com.br
+          new: https://new.test.com.br
+          dev: https://dev.test.com.br
+      connectors: [] # Array de objeto com name e type
 
-    - name: another_stack/dynamo@v3              #(interface implementation)
-      type: runtime
-      id: db1
-      inputs:
-        table: my-table
-        pk: pk
-        sk: sk
+  global-inputs:  # Opcional
+    project_name: Teste  
 
-    - name: another_stack/sqs-consumer@v3         #(applied plugin - para criação de nova fila)
-      type: runtime
-      inputs:
-      connector:
-         - name: sqs-conn                         #(interface)
-           id: sqs1
-
-    - name: another_stack/sqs@v3                  #(interface implementation)
-      type: runtime
-      id: sqs1
-      inputs:
-        queue-name: my-queue
-
-    - name: another_stack/sqs-consumer@v3         #(applied plugin - fila existente)
-      type: runtime
-      inputs:
-      connector:
-         - name: <CONNECTOR NAME 1>               #(escolhido)
-           type: sqs-conn
+  global-computed-inputs: # Opcional
+    project_type: Api  
+    version: stackspot.rest
+    package: StackSpot.Template.Rest
+    framework: net6.0
