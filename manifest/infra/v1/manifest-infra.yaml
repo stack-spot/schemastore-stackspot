@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=./manifest-app-schema.json
+# yaml-language-server: $schema=./manifest-infra-schema.json
 # INFR
 schema-version: v1
 kind: manifest
@@ -9,7 +9,7 @@ metadata:
   stack-version-id: 01GXHFTEJ891VARHYSGAD90K4N
 
 spec:
-  type: app
+  type: infra
   infra-id: 11111-22222-33333-44444                         #(único por Workspace) [Opcional] * Só é criado após o registro do app
 
   plugins:
