@@ -1,0 +1,37 @@
+name: "create-plugin"
+description: Just a simple Template
+type: scaffold
+haveSample: false
+programmatic: false
+tags:
+  - "create-plugin-scaffold"
+inputs:
+
+  # parameters always provided by stk create plugin
+ 
+  - label: "name"
+    type: text
+    name: "plugin_name"
+
+  - label: "Repository:"
+    type: text
+    name: "repository"
+    required: False
+
+  - label: "Add Repository"
+    type: bool
+    name: "add_repository"
+
+  # parameters will be asked if not provided by stk create plugin options
+  - label: "Version"
+    type: text
+    name: "version"
+    default: "0.0.1"
+
+  - label: "Plugin description:"
+    type: text
+    name: "plugin_description"
+    default: "Describe your plugin explaining its purpose"
+
+
+

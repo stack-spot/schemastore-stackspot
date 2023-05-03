@@ -1,0 +1,48 @@
+schema-version: v1
+kind: plugin
+metadata:
+  name: {{plugin_name}}
+  display-name: {{plugin_name}}
+  description: {{plugin_description}}
+  version: {{version}}
+  picture: plugin.png
+spec:
+  type: app
+  compatibility:
+    - python
+  about: docs/about.md
+  implementation: docs/implementation.md
+  release-notes: docs/release-notes-{{version}}.md
+  requirements: docs/requirements.md
+  {% if add_repository %}
+  repository: {{repository}}
+  {% endif %}
+  technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
+    - Api
+  {% if connection_interface_types %}
+  requires:
+    connection-interface:
+      {% for connection_interface_type in connection_interface_types %}
+      - {{connection_interface_type}}
+      {% endfor %}
+  {% endif %}
+  inputs:
+    - label: Type name of your resource
+      name: resource
+      type: text
+      required: true
+      default: Client
+      pattern: '([A-Z][a-z]+)+'
+      help: 'Inform your resource name (e.g.: Client)'
+    - label: Choose http method of new endpoint
+      name: method
+      type: text
+      items:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - PATCH
+      default: GET
+      required: true
+      help: 'Inform the method of the endpoint (e.g.: post or delete)'

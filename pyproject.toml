@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "stackspot_store"
-version = "0.1.11"
+version = "0.1.14"
 description = ""
 authors = ["andre-cintra <andre.cintra@zup.com.br>"]
 
