@@ -18,7 +18,7 @@ spec:
   technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
     - Api
   generates:
-    links:
+    link:
       - name: Grafana Dev
         url: https://grafana.dev.zup.com.br/
         type: static
