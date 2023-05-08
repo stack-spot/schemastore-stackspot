@@ -17,6 +17,12 @@ spec:
   repository: https://github.com/stack-spot/test-plugin.git
   technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
     - Api
+  generates:
+    links:
+      - name: Grafana Dev
+        url: https://grafana.dev.zup.com.br/
+        type: static
+        picture: docs/grafana.png
   requires:
     connection-interface:
       - ecs-task-conn

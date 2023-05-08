@@ -25,7 +25,13 @@
           "compatibility": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/compatibility" },
           "technologies": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/technologies" },
           "repository": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/repository" },
-          "generates": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/generates" },
+          "links": {
+            "type": "object",
+            "properties": {
+              "connection-interface": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/connection-interface" },
+              "links": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/links" }
+            }
+          },
           "requires": {
             "type": "object",
             "properties": {

@@ -31,6 +31,12 @@
               "plugin": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/requires-plugin" },
               "connection-interface": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/connection-interface" }
             }
+          },
+          "generates": {
+            "type": "object",
+            "properties": {
+              "links": { "$ref": "https://raw.githubusercontent.com/stack-spot/schemastore-stackspot/main/stackspot_store/schemas/plugin/v1/_definitions.json#/definitions/links" }
+            }
           }
         },
         "required": ["type"]

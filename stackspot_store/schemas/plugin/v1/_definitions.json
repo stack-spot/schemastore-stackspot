@@ -40,16 +40,20 @@
           ]
         }
       },
-      "generates": {
-        "type": "object",
-        "properties": {
-          "connection-interface": {
-            "$ref": "#/definitions/connection-interface"
+      "links": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["name", "url", "type"],
+          "properties": {
+              "name": {"type": "string"},
+              "url": {"type": "string"},
+              "type": {
+                  "type": "string",
+                  "enum": ["static"]
+              }
           }
-        },
-        "required": [
-          "connection-interface"
-        ]
+      }
       },
       "compatibility": {
         "type": "array",
