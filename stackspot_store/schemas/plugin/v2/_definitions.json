@@ -1,0 +1,96 @@
+{
+  "definitions": {
+      "markdown": {
+          "type": "string"
+      },
+      "inputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "name", "type"],
+            "properties": {
+                "label": {"type": "string"},
+                "name": {"type": "string"},
+                "type": {
+                    "type": "string",
+                    "enum": ["text", "bool", "int", "password", "multiselect", "select"]
+                },
+                "required": {"type": "boolean"},
+                "pattern": {"type": "string"},
+                "help": {"type": "string"},
+                "default": {"type": "string"},
+                "items": {
+                    "type": "array",
+                    "items": {"type": "string"}
+                }
+            }
+        }
+      },
+      "links": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["name", "url", "type"],
+          "properties": {
+              "name": {"type": "string"},
+              "url": {"type": "string"},
+              "type": {
+                  "type": "string",
+                  "enum": ["static"]
+              },
+              "picture": {"type": "string"}
+          }
+      }
+      },
+      "compatibility": {
+        "type": "array",
+        "items": {
+            "type": "string"
+        }
+      },
+      "technologies": {
+        "type": "array",
+        "items": {
+            "type": "string"
+        }
+      },
+      "repository": {
+        "type": "string"
+      },
+      "connections": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["type", "alias", "outputs"],
+          "properties": {
+              "type": {"type": "string"},
+              "alias": {"type": "string"},
+              "outputs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required":["from", "to"],
+                  "properties":{
+                    "from": {"type": "string"},
+                    "to": {"type": "string"}
+                  }
+                }
+              }
+          }
+        }        
+      },
+      "environment": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "terraform-1-3",
+            "terraform-1-4",
+            "aws-cli-2",
+            "git-2"
+          ]
+        }
+      }
+    
+  }
+}

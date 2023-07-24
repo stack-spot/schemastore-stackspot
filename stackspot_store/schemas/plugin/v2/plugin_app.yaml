@@ -1,0 +1,51 @@
+schema-version: v2
+kind: plugin
+metadata:
+  name: my-plugin
+  display-name: my-plugin
+  description: Describe your plugin explaining its purpose
+  version: 0.0.1
+  picture: plugin.png
+spec:
+  type: app
+  compatibility:
+    - python
+  about: docs/about.md
+  implementation: docs/implementation.md
+  release-notes: docs/release-notes-0.0.1.md
+  requirements: docs/requirements.md
+  repository: https://github.com/stack-spot/test-plugin.git
+  technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
+    - Api
+  generates:
+    link:
+      - name: Grafana Dev
+        url: https://grafana.dev.zup.com.br/
+        type: static
+        picture: docs/grafana.png
+  requires:
+    connections:
+      - type: ecs-task-conn
+        alias: ecs-task-creator-placeholder
+      - type: ec2-alb-conn
+        alias: ec2-alb-creator-placeholder
+  inputs:
+    - label: Type name of your resource
+      name: resource
+      type: text
+      required: true  #defautl false
+      default: Client
+      pattern: '([A-Z][a-z]+)+'
+      help: 'Inform your resource name (e.g.: Client)'
+    - label: Choose http method of new endpoint
+      name: method
+      type: text
+      items:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - PATCH
+      default: GET
+      required: true
+      help: 'Inform the method of the endpoint (e.g.: post or delete)'
