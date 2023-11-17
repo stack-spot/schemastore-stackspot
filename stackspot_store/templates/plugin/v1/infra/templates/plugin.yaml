@@ -10,10 +10,6 @@ spec:
   type: infra
   compatibility:
     - python
-  about: docs/about.md
-  implementation: docs/implementation.md
-  release-notes: docs/release-notes-{{version}}.md
-  requirements: docs/requirements.md
   {% if add_repository %}
   repository: {{repository}}
   {% endif %}

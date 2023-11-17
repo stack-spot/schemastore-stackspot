@@ -10,10 +10,6 @@ spec:
   type: app
   compatibility:
     - python
-  about: docs/about.md
-  implementation: docs/implementation.md
-  release-notes: docs/release-notes-0.0.1.md
-  requirements: docs/requirements.md
   repository: https://github.com/stack-spot/test-plugin.git
   technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
     - Api
